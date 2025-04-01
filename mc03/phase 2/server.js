@@ -15,7 +15,7 @@ app.use(cors());
 
 
 // Replace with your actual MongoDB connection string
-const mongoURI = "mongodb+srv://ccapdev:ccapdev123@phase2.tnb1k.mongodb.net/phase2";
+const mongoURI = "mongodb+srv://ccapdev:ccapdev123@phase2.tnb1k.mongodb.net/?retryWrites=true&w=majority&appName=phase2";
 const dbName = "phase2"; // Use your actual database name
 
 let db;
@@ -28,7 +28,7 @@ MongoClient.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true 
     .catch(error => console.error("MongoDB connection error:", error));
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ccapdev:ccapdev123@phase2.tnb1k.mongodb.net/phase2', {
+mongoose.connect('mongodb+srv://ccapdev:ccapdev123@phase2.tnb1k.mongodb.net/?retryWrites=true&w=majority&appName=phase2', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB Connected'))
