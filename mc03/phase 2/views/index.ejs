@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+    <html lang="en"></html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href=
+        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+        
+        
+        <title>Homepage</title>
+    </head>
+
+    <style>
+
+        
+
+:root {
+--background-color: #f8f8ff;
+--secondary-color: #262731;
+--accent-color: #ae0c00;
+}
+
+.header{
+display: flex;
+flex-direction: row;
+background-color: white;
+width: 100%;
+margin: 0;
+padding: 0;
+}
+
+.logo{
+margin-top: 20px;
+margin-left: 20px;}
+
+.nav-link-custom{
+    margin-top: 25px;
+    margin-left: 0;
+    margin-right: 10px;
+    color: var(--secondary-color);
+    font-family: Helvetica;
+    font-size: 15px;
+}
+
+.nav-link-custom i{
+    font-size: 1.5rem;
+    margin-right: 2px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust spacing between items */
+}
+
+.nav-link-custom {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.search-bar{
+    margin-top: 25px;
+    margin-left:550px;
+    margin-right: auto;
+    max-width: 600px;
+}
+
+.form-control{
+    width: 300px;
+}
+.btn-search{
+    border: 1px transparent;
+    color: var(--secondary-color);
+    border-radius: 5px; 
+    margin-right: auto;
+}
+.btn-log{
+    width: 80px;
+    background-color: var(--accent-color);
+    color: whitesmoke; 
+    margin: 20px 25px 20px 12px;
+    border-radius: 5px; 
+    padding: 15px;
+}
+
+.login-box{
+    display: flex;
+    justify-content: center;    
+}
+
+nav, .navbar {
+    margin: 0;
+    padding: 0;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0px;
+}
+
+.top-body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-body-items{
+    margin-left: 0;
+    margin-right: 20px;
+    color: var(--secondary-color);
+    font-family: Helvetica;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.dropdown {
+position: relative;
+display: inline-block;
+}   
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: white;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+top: 100%;
+left: 0;
+}
+
+.dropdown-content a {
+    color: var(--secondary-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .top-body-items {
+    background-color: #ddd;
+}
+.line{
+    border: 1px solid gray;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+
+
+
+
+.middle-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff2f2;
+}
+.middle-body-header{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-family: Helvetica;
+    color: var(--secondary-color);
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+
+    
+}
+.img-info {
+    border-radius: 15px;
+}
+
+
+
+.middle-body-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.img-info > img{
+    width: 200px;
+    height: 250px;
+    margin-right: 20px;
+}
+
+.img-info{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.info-header{
+    margin-top: 5px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: var(--secondary-color);
+    align-items: left;
+    
+}
+
+.info-sub{
+    font-family: Helvetica;
+    color: var(--accent-color);
+    align-items: left;
+}
+
+.titlepage {
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.button1 {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: start;
+}
+
+.dropdown-menu-custom {
+    position: absolute !important; /* Prevents shifting content */
+    right: 0; /* Aligns to the right */
+    top: 100%; /* Places it directly below the button */
+    z-index: 1050; /* Ensures it stays above other elements */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Shows menu on hover */
+}
+
+    </style>
+
+
+
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="containter-fluid header">
+
+
+           <div class="logo">
+            <a class="navbar-brand" href="/">
+                <img src="images/title.png" alt="pac" width="180px" height="50px">
+             </a>
+        </div>
+
+        <div class="search-bar container">
+            <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+               <button class="btn btn-search" type="submit">
+                <i class="bi bi-search"></i>
+               </button>
+            </form>
+        </div>
+
+            <!---<div class="d-flex justify-content-end">
+                
+                <form class="d-flex justify-content-start">
+                    <a class="btn-log" href="login.html">Log-In</a>
+                </form>
+            </div>--->
+
+            <div class="navbar-nav d-flex align-items-center">
+                <div class="dropdown">
+                    <a id="account-link" class="nav-link nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person"></i> <%= user ? user.name : 'Account' %>
+                    </a>
+            
+                    <ul class="dropdown-menu dropdown-menu-custom">
+                        <% if (user) { %>
+                            <li>
+                                <form action="/logout" method="GET">
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        <% } else { %>
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
+                            <li><a class="dropdown-item" href="/register">Register</a></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            
+            
+                                    
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+    fetch('/api/user')
+        .then(response => response.json())
+        .then(data => {
+            console.log("User Data:", data); // Debugging
+
+            if (data && data.userID && data.name) {
+                const accountLink = document.getElementById("account-link");
+                const logoutButton = document.getElementById("logout");
+
+                if (accountLink) {
+                    accountLink.innerHTML = `<i class="bi bi-person"></i> ${data.name} (ID: ${data.userID})`;
+                } else {
+                    console.warn("Element with ID 'account-link' not found.");
+                }
+
+                if (logoutButton) {
+                    logoutButton.style.display = "block"; // Show logout button
+
+                    // Logout functionality
+                    logoutButton.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        fetch('/logout', { method: 'POST' })
+                            .then(() => {
+                                window.location.href = "/"; // Redirect to homepage
+                            })
+                            .catch(error => console.error("Error logging out:", error));
+                    });
+                } else {
+                    console.warn("Logout button not found, cannot add event listener.");
+                }
+            } else {
+                console.log("User not logged in or invalid data");
+            }
+        })
+        .catch(error => console.error("Error fetching user data:", error));
+});
+
+
+            </script>
+                        
+                                <a class="nav-link nav-link-custom" href="/pets"><i class="bi bi-heart"></i>Adopt Now!</a>
+           </div>
+                
+        </div>
+    </nav>
+
+    <div class="body">
+        <div class="top-body">
+
+            <a class="top-body-items" href="/"> Home </a>
+            <a class="top-body-items" href="/pets"> Our Pets </a>
+            <a class="top-body-items" href="/about"> About Us </a>
+            <a class="top-body-items" href="#faq"> FAQ </a>
+            <a class="top-body-items" href="#contact"> Contact Us </a>
+
+            <!---<div class="dropdown">
+                <a class="top-body-items">Shop</a>
+                <div class="dropdown-content">
+                    <a href="browse1.html">Clothes</a>
+                    <a href="browse2.html">Pet Food</a>
+                    <a href="browse3.html">Pet Necessities</a>
+                </div>
+            </div>-->
+            
+
+        
+       </div>
+
+       <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/home1.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="images/home2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="images/home3.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+        
+      </div>
+      
+      
+
+      <div class="middle-body">
+        
+            
+                
+            <div class="middle-body-header">
+                
+               
+                <div class="line"></div>
+                <div class="middle-body-items">
+                    <div class="img-info">
+                        <img src="images/dog1.avif" class="img-info">
+                        
+                        
+                    </div>
+                    <div class="img-info">
+                        <img src="images/cat1.jpg" class="img-info">
+                        
+                        
+                    </div>
+                    <div class="img-info">
+                        <img src="images/dog3.jpg" class="img-info">
+                        
+                        
+                    </div>
+                    
+                    
+                    </div>
+                    <form class="test" action="/pets" method="get">
+                        <button class="button1" type="submit">ADOPT NOW</button>
+                </form>
+                    </div>
+        
+                </div>
+                <div id="faq" class="container mt-5">
+                    <div class="line"></div>
+                    <h2>Frequently Asked Questions</h2>
+                    <p><strong>Q: How do I adopt a pet?</strong><br>A: Simply browse our pet listings and click "Adopt Now" to start the process.</p>
+                    <p><strong>Q: Is there an adoption fee?</strong><br>A: Yes, a small fee is required to cover veterinary costs and care.</p>
+                    <p><strong>Q: Do you adopt animals?</strong><br>A: PAC does not adopt animals we rescue them.</p>
+                    <p><strong>Q: Can I return my adopted pet if I change my mind?</strong><br>A: A pet is a lifetime commitment. However, if you truly can't keep your adopted pet, Please return them to us so we can find another home for them.</p>
+                    <p><strong>Q: Do you have puppies or kittens for adoption?</strong><br>A: Puppies and kittens are only available for fostering for up to 6 months, or until they are vaccinated and neutered.</p>
+                </div>
+                <div id="contact" class="container mt-5">
+                    <h2>Contact Us</h2>
+                    <p>Email: support@ourwebsite.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <p>Address: 123 Pet Adoption Street, City, Country</p>
+                </div>
+            </div>
+            
+            
+        
+      </div>
+
+
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+ </body>
+</html>
+
+
+
+

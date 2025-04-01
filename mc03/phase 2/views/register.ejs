@@ -1,0 +1,342 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>Register</title>
+</head>
+<style>
+            :root {
+        --background-color: #f8f8ff;
+        --secondary-color: #262731;
+        --accent-color: #ae0c00;
+        }
+
+    .header{
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .nav-link-custom{
+        margin-top: 25px;
+        margin-left: 0;
+        margin-right: 10px;
+        color: var(--secondary-color);
+        font-family: Helvetica;
+        font-size: 15px;
+    }
+
+    .nav-link-custom i{
+        font-size: 1.5rem;
+        margin-right: 2px;
+    }
+
+    .search-bar{
+        margin-top: 25px;
+        margin-left: 550px;
+        margin-right: auto;
+        max-width: 600px;
+    }
+
+    .form-control{
+        width: 300px;
+    }
+    .btn-search{
+        border: 1px transparent;
+        color: var(--secondary-color);
+        border-radius: 5px; 
+        margin-right: auto;
+    }
+    .btn-log{
+        width: 80px;
+        background-color: var(--accent-color);
+        color: whitesmoke; 
+        margin: 20px 25px 20px 12px;
+        border-radius: 5px; 
+        padding: 15px;
+    }
+
+    .login-box{
+        display: flex;
+        justify-content: center;    
+    }
+
+    nav, .navbar {
+        margin: 0;
+        padding: 0;
+    }
+
+    .body{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin: 0px;
+    }
+
+    .top-body{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .top-body-items{
+        
+        
+        margin-left: 0;
+        margin-right: 20px;
+        color: var(--secondary-color);
+        font-family: Helvetica;
+        font-size: 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .line{
+        border: 1px solid gray;
+        width: 100%;
+        position: relative;
+    }
+
+    .dropdown-menu-custom {
+    position: absolute !important; /* Prevents shifting content */
+    right: 0; /* Aligns to the right */
+    top: 100%; /* Places it directly below the button */
+    z-index: 1050; /* Ensures it stays above other elements */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Shows menu on hover */
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adjust spacing between items */
+}
+
+.nav-link-custom {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+</style>
+<body>
+    
+        <nav class="navbar bg-body-tertiary">
+            <div class="containter-fluid header">
+    
+    
+               <div class="logo">
+                <a class="navbar-brand" href="/">
+                    <img src="images/title.png" alt="pac" width="180px" height="50px">
+                 </a>
+            </div>
+    
+            <div class="search-bar container">
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-search" type="submit">
+                    <i class="bi bi-search"></i>
+                   </button>
+                </form>
+            </div>
+    
+                <!---<div class="d-flex justify-content-end">
+                    
+                    <form class="d-flex justify-content-start">
+                        <a class="btn-log" href="login.html">Log-In</a>
+                    </form>
+                </div>--->
+    
+                <div class="navbar-nav d-flex align-items-center">
+                    <div class="dropdown">
+                        <a id="account-link" class="nav-link nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person"></i> <%= user ? user.name : 'Account' %>
+                        </a>
+                
+                        <ul class="dropdown-menu dropdown-menu-custom">
+                            <% if (user) { %>
+                                <li>
+                                    <form action="/logout" method="GET">
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </li>
+                            <% } else { %>
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                                        
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+    fetch('/api/user')
+        .then(response => response.json())
+        .then(data => {
+            console.log("User Data:", data); // Debugging
+
+            if (data && data.name && data.name !== "Account") {
+                const accountLink = document.getElementById("account-link");
+                const logoutButton = document.getElementById("logout");
+
+                if (accountLink) {
+                    accountLink.innerHTML = `<i class="bi bi-person"></i> ${data.name}`;
+                } else {
+                    console.warn("Element with ID 'account-link' not found.");
+                }
+
+                if (logoutButton) {
+                    logoutButton.style.display = "block"; // Show logout button
+
+                    // Logout functionality (only attach if button exists)
+                    logoutButton.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        fetch('/logout', { method: 'POST' })
+                            .then(() => {
+                                window.location.href = "/"; // Redirect to homepage
+                            })
+                            .catch(error => console.error("Error logging out:", error));
+                    });
+                } else {
+                    console.warn("Logout button not found, cannot add event listener.");
+                }
+            } else {
+                console.log("User not logged in or invalid data");
+            }
+        })
+        .catch(error => console.error("Error fetching user data:", error));
+});
+                </script>                    <a class="nav-link nav-link-custom" href="/pets"><i class="bi bi-heart"></i>Adopt Now!</a>
+               </div>
+                    
+            </div>
+        </nav>
+    
+        <div class="body">
+            <div class="top-body">
+    
+                <a class="top-body-items" href="/"> Home </a>
+                <a class="top-body-items" href="/pets"> Our Pets </a>
+                <a class="top-body-items" href="/about"> About Us </a>
+                <a class="top-body-items" href="#faq"> FAQ </a>
+                <a class="top-body-items" href="#contact"> Contact Us </a>
+    
+                <!---<div class="dropdown">
+                    <a class="top-body-items">Shop</a>
+                    <div class="dropdown-content">
+                        <a href="browse1.html">Clothes</a>
+                        <a href="browse2.html">Pet Food</a>
+                        <a href="browse3.html">Pet Necessities</a>
+                    </div>
+                </div>-->
+                
+    
+            
+           </div>
+           <div class="container mt-5">
+            <h2 class="text-center">Register</h2>
+            <form id="registerForm">
+                <label for="name" class="form-label">Full Name:</label>
+                <input type="text" class="form-control mb-3" id="name" required>
+        
+                <label for="number" class="form-label">Phone Number:</label>
+                <input type="number" class="form-control mb-3" id="phone" required>
+        
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control mb-3" id="email" required>
+        
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control mb-3" id="password" required>
+        
+                <button type="submit" class="btn btn-success w-100">Register</button>
+            </form>
+        </div>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("registerForm");
+
+    if (!form) {
+        console.error("Form with ID 'registerForm' not found!");
+        return; // Stop execution if the form is missing
+    }
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Prevent page refresh
+
+        // Get input values
+        const name = document.getElementById("name")?.value.trim();
+        const phone = document.getElementById("phone")?.value.trim();
+        const email = document.getElementById("email")?.value.trim();
+        const password = document.getElementById("password")?.value.trim();
+
+        // Simple validation check
+        if (!name || !phone || !email || !password) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        try {
+            const response = await fetch("/api/auth/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, phone, email, password }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("Registration successful! 🎉");
+                form.reset(); // Clear form
+            } else {
+                alert(result.message || "Registration failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Registration failed. Please try again.");
+        }
+    });
+});
+
+        </script>
+        
+                    
+        <p class="text-center mt-3">Already have an account? <a href="/login">Login here</a></p>
+    </div>
+    <div id="faq" class="container mt-5">
+        <div class="line"></div>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Q: How do I adopt a pet?</strong><br>A: Simply browse our pet listings and click "Adopt Now" to start the process.</p>
+        <p><strong>Q: Is there an adoption fee?</strong><br>A: Yes, a small fee is required to cover veterinary costs and care.</p>
+        <p><strong>Q: Do you adopt animals?</strong><br>A: PAC does not adopt animals we rescue them.</p>
+        <p><strong>Q: Can I return my adopted pet if I change my mind?</strong><br>A: A pet is a lifetime commitment. However, if you truly can't keep your adopted pet, <br>Please return them to us so we can find another home for them.</p>
+        <p><strong>Q: Do you have puppies or kittens for adoption?</strong><br>A: Puppies and kittens are only available for fostering for up to 6 months, <br>or until they are vaccinated and neutered.</p>
+    </div>
+    <div id="contact" class="container mt-5" >
+        <h2>Contact Us</h2>
+        <p>Email: support@ourwebsite.com</p>
+        <p>Phone: +123 456 7890</p>
+        <p>Address: 123 Pet Adoption Street, City, Country</p>
+    </div>
+</body>
+</html>
+

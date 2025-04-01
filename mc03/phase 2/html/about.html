@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href=
+        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+        <title>About Us</title>
+    </head>
+
+
+    <style>
+        :root {
+        --background-color: #f8f8ff;
+        --secondary-color: #262731;
+        --accent-color: #ae0c00;
+        }
+
+    .header{
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .nav-link-custom{
+        margin-top: 25px;
+        margin-left: 0;
+        margin-right: 10px;
+        color: var(--secondary-color);
+        font-family: Helvetica;
+        font-size: 15px;
+    }
+
+    .nav-link-custom i{
+        font-size: 1.5rem;
+        margin-right: 2px;
+    }
+
+    .search-bar{
+        margin-top: 25px;
+        margin-left: 550px;
+        margin-right: auto;
+        max-width: 600px;
+    }
+
+    .form-control{
+        width: 300px;
+    }
+    .btn-search{
+        border: 1px transparent;
+        color: var(--secondary-color);
+        border-radius: 5px; 
+        margin-right: auto;
+    }
+    .btn-log{
+        width: 80px;
+        background-color: var(--accent-color);
+        color: whitesmoke; 
+        margin: 20px 25px 20px 12px;
+        border-radius: 5px; 
+        padding: 15px;
+    }
+
+    .login-box{
+        display: flex;
+        justify-content: center;    
+    }
+
+    nav, .navbar {
+        margin: 0;
+        padding: 0;
+    }
+
+    .body{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin: 0px;
+    }
+
+    .top-body{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .top-body-items{
+        
+        
+        margin-left: 0;
+        margin-right: 20px;
+        color: var(--secondary-color);
+        font-family: Helvetica;
+        font-size: 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }  
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    }
+
+    .dropdown-content a {
+        color: var(--secondary-color);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .top-body-items {
+        background-color: #ddd;
+    }
+
+
+    .about-header {
+    
+    align-items: center;
+    text-align: center;
+    margin-top: 25px;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 35px;
+    }
+
+    table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 0px 1px 1px 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+       
+        i{
+            align-items: end;
+            border: 0;
+            width: 1%;
+        }
+
+    .cancel{
+        width: 80px;
+        height: 30px;
+        align-items: center;
+        background-color: white;
+        border-radius: 5px;
+        margin-left: 1525px;
+        margin-top: 20px;
+        box-shadow: 2px 2px 2px 2px #dddddd;
+        font-family: Helvetica;
+        color:#ae0c00;
+        font-size: 15px;
+        padding: 5px;
+        text-align: center;
+        cursor: pointer; 
+    }
+
+    i:hover {
+    background-color: #610f0959;
+    border-radius: 100px;
+}
+
+.about1 {
+    font-family: Helvetica;
+    font-weight: bold;
+    color: grey;
+    font-size: 30px;
+    
+}
+
+.shelter {
+    margin-left: 200px;
+    border-radius: 30px;
+    margin-right: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.line {
+    border-bottom: 2px solid grey;
+    margin: 10px 0;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+
+h2 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+
+
+</style>
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="containter-fluid header">
+
+
+           <div class="logo">
+            <a class="navbar-brand" href="home.html">
+                <img src="images/title.png" alt="pac" width="180px" height="50px">
+             </a>
+        </div>
+
+        <div class="search-bar container">
+            <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+               <button class="btn btn-search" type="submit">
+                <i class="bi bi-search"></i>
+               </button>
+            </form>
+        </div>
+
+            <!---<div class="d-flex justify-content-end">
+                
+                <form class="d-flex justify-content-start">
+                    <a class="btn-log" href="login.html">Log-In</a>
+                </form>
+            </div>--->
+
+            <div class="navbar-nav d-flex flex-row">
+                <a class="nav-link nav-link-custom" href="register.html"> <i class="bi bi-person"></i>Account</a>
+                <a class="nav-link nav-link-custom" href="pets.html"><i class="bi bi-heart"></i>Adopt Now!</a>
+           </div>
+                
+        </div>
+    </nav>
+
+    <div class="body">
+        <div class="top-body">
+
+            <a class="top-body-items" href="home.html"> Home </a>
+            <a class="top-body-items" href="pets.html"> Our Pets </a>
+            <a class="top-body-items" href="about.html"> About Us </a>
+            <a class="top-body-items" href="#faq"> FAQ </a>
+            <a class="top-body-items" href="#contact"> Contact Us </a>
+
+            <!---<div class="dropdown">
+                <a class="top-body-items">Shop</a>
+                <div class="dropdown-content">
+                    <a href="browse1.html">Clothes</a>
+                    <a href="browse2.html">Pet Food</a>
+                    <a href="browse3.html">Pet Necessities</a>
+                </div>
+            </div>-->
+            
+
+        
+       </div>
+    
+
+       <div class="about-header">
+        About Us
+       </div>
+
+       <img src="images/petshelter.jpg" class="shelter">
+       <div class="line"></div>
+       <div class="container">
+        <div class="abouts">
+            <div class="section">
+                <h2>ABOUT PAC</h2>
+                <p class="about1">The Pet Adoption Center (PAC) is a compassionate organization dedicated to ending pet homelessness and finding loving families for abandoned animals.<br> <br>
+                     Founded on the belief that every pet deserves a second chance, PAC works tirelessly to rescue, rehabilitate, and rehome cats, dogs, and other companion animals.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>OUR MISSION</h2>
+                <p class="about1">PAC aims to:<br><br>
+                    - Rescue pets from shelters, streets, and unsafe conditions.<br>
+                    - Provide medical care, vaccinations, and spay/neuter services.<br>
+                    - Match animals with responsible, caring adopters.<br>
+                    - Educate communities about responsible pet ownership and animal welfare.<br>
+                    </p>
+
+            </div>
+            <div class="section">
+                <h2>WHY ADOPT FROM PAC?</h2>
+                <p class="about1">By adopting from PAC, you’re not just getting a pet but you’re saving a life. Every adoption creates space for another animal in need, helping to reduce overcrowding in shelters.<br>
+                    <br> PAC welcomes volunteers, fosters, and donors who want to make a difference. Join us in our mission to create a world where no pet is left without a home.
+
+                    </p>
+
+            </div>
+        </div>
+       </div>
+       <div class="line"></div>
+                <div id="faq" class="container mt-5">
+                    <h2>Frequently Asked Questions</h2>
+                    <p><strong>Q: How do I adopt a pet?</strong><br>A: Simply browse our pet listings and click "Adopt Now" to start the process.</p>
+                    <p><strong>Q: Is there an adoption fee?</strong><br>A: Yes, a small fee is required to cover veterinary costs and care.</p>
+                    <p><strong>Q: Do you adopt animals?</strong><br>A: PAC does not adopt animals we rescue them.</p>
+                    <p><strong>Q: Can I return my adopted pet if I change my mind?</strong><br>A: A pet is a lifetime commitment. However, if you truly can't keep your adopted pet, Please return them to us so we can find another home for them.</p>
+                    <p><strong>Q: Do you have puppies or kittens for adoption?</strong><br>A: Puppies and kittens are only available for fostering for up to 6 months, or until they are vaccinated and neutered.</p>
+                </div>
+                <div id="contact" class="container mt-5">
+                    <h2>Contact Us</h2>
+                    <p>Email: support@ourwebsite.com</p>
+                    <p>Phone: +123 456 7890</p>
+                    <p>Address: 123 Pet Adoption Street, City, Country</p>
+                </div>
+       
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+ 
+</body>
+</html>
